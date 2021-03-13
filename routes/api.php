@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\ProdutoController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('marca', 'MarcaController');
 Route::apiResource('produto', 'ProdutoController');
-Route::apiResource('produto_categoria', 'ProdutoCategoriaController');
+Route::apiResource('categoria', 'CategoriaController');
 

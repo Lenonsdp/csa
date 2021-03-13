@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-	public function __construct(Categorias $categoria)
+	public function __construct(Categoria $categoria)
 	{
 		$this->categoria = $categoria;
 	}
@@ -31,8 +31,11 @@ class CategoriaController extends Controller
 	 */
 	public function store(Request $request)
 	{
-	   $categoria = $this->categoria->create($request->all());
-	   return $categoria;
+
+		$request->validate($this->categoria->rules(), $this->categoria->feedBack());
+
+		$categoria = $this->categoria->create($request->all());
+		return $categoria;
 	}
 
 	/**
@@ -44,6 +47,10 @@ class CategoriaController extends Controller
 	public function show($id)
 	{
 		$categoria = $this->categoria->find($id);
+		if (is_null($categoria)) {
+			return response('error', 404);
+		}
+
 		return $categoria;
 	}
 
@@ -57,6 +64,10 @@ class CategoriaController extends Controller
 	public function update(Request $request, $id)
 	{
 		$categoria = $this->categoria->find($id);
+
+		if (is_null($categoria)) {
+			return response('error', 404);
+		}
 		$categoria->update($request->all());
 
 		return $categoria;
@@ -71,8 +82,13 @@ class CategoriaController extends Controller
 	public function destroy($id)
 	{
 		$categoria = $this->categoria->find($id);
+
+		if (is_null($categoria)) {
+			return response('error', 404);
+		}
+
 		$categoria->delete();
 
-		return ['success' => true];
+		return response('success', 204);
 	}
 }

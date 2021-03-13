@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Produto;
+
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -19,7 +20,8 @@ class ProdutoController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$produtos = $this->produto->with('marca')->with('categorias')->get();
+		return $produtos;
 	}
 
 	/**
@@ -30,7 +32,15 @@ class ProdutoController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$produto = $this->produto->create($request->all());
+		$request->validate($this->produto->rules(), $this->produto->feedback());
+
+		$parseProduct = $request->all();
+		$idsCategorias = $parseProduct['categoria_id'];
+		unset($parseProduct['categoria_id']);
+
+		$produto = $this->produto->create($parseProduct);
+		$produto->categorias()->attach($idsCategorias);
+
 		return $produto;
 	}
 
@@ -42,7 +52,11 @@ class ProdutoController extends Controller
 	 */
 	public function show($id)
 	{
-		$produto = $this->produto->find($id);
+		$produto = $this->produto->with('marca')->with('categorias')->find($id);
+
+		if (is_null($produto)) {
+			return response('error', 404);
+		}
 
 		return $produto;
 	}
@@ -57,6 +71,11 @@ class ProdutoController extends Controller
 	public function update(Request $request, $id)
 	{
 		$produto = $this->produto->find($id);
+
+		if (is_null($produto)) {
+			return response('error', 404);
+		}
+
 		$produto->update($request->all());
 
 		return $produto;
@@ -65,13 +84,18 @@ class ProdutoController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Produto  $produto
+	 * @param  Integer
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Produto $produto)
+	public function destroy($id)
 	{
-		$produto = $this->produto->delete();
+		$produto = $this->produto->find($id);
 
-		return ['succes' => true];
+		if (is_null($produto)) {
+			return response('error', 404);
+		}
+		$produto->delete();
+
+		return response('success', 204);
 	}
 }

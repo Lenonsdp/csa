@@ -32,18 +32,8 @@ class MarcaController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$regras = [
-			'descricao' => 'required|unique:marcas',
-			'status' => 'boolean'
-		];
+		$request->validate($this->marca->rules(), $this->marca->feedBack());
 
-		$feedBack = [
-			'required' => 'O campo :attribute é obrigatório',
-			'descricao.unique' => 'O nome da marca já existe'
-
-		];
-
-		$request->validate($regras, $feedBack);
 		$marca = $this->marca->create($request->all());
 		return $marca;
 	}
@@ -56,7 +46,10 @@ class MarcaController extends Controller
 	 */
 	public function show($id)
 	{
-		$marca = $this->marca->find($id);
+		$marca = $this->marca->with('produtos')->find($id);
+		if (is_null($marca)) {
+			return response('error', 404);
+		}
 
 		return $marca;
 	}
@@ -71,6 +64,9 @@ class MarcaController extends Controller
 	public function update(Request $request, $id)
 	{
 		$marca = $this->marca->find($id);
+		if (is_null($marca)) {
+			return response('error', 404);
+		}
 		$marca->update($request->all());
 
 		return $marca;
@@ -86,7 +82,7 @@ class MarcaController extends Controller
 	{
 		$marca = $this->marca->find($id);
 		if (is_null($marca)) {
-			return \response()->json(['error' => 'Não foi possível deletar a marca.'], 404);
+			return response('error', 404);
 		}
 		$marca->delete();
 

@@ -17,7 +17,7 @@ class CreateProduto extends Migration
 			$table->id();
 			$table->string('nome', 150);
 			$table->unsignedBigInteger('marca_id');
-			$table->longText('especificao_tecnica');
+			$table->longText('especificacao_tecnica')->nullable();
 			$table->boolean('status')->default(true);;
 			$table->timestamps();
 
