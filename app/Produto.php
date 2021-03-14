@@ -36,6 +36,6 @@ class Produto extends Model
 
 	public function categorias()
 	{
-		return $this->belongsToMany('App\Categoria', 'produto_categorias');
+		return $this->belongsToMany('App\Categoria', 'produto_categorias')->withTimestamps();
 	}
 }

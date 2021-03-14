@@ -31,7 +31,7 @@ class CategoriaController extends Controller
 	 */
 	public function store(Request $request)
 	{
-
+		$request->headers->set('accept', 'application/json');
 		$request->validate($this->categoria->rules(), $this->categoria->feedBack());
 
 		$categoria = $this->categoria->create($request->all());
@@ -63,6 +63,7 @@ class CategoriaController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
+		$request->headers->set('accept', 'application/json');
 		$categoria = $this->categoria->find($id);
 
 		if (is_null($categoria)) {

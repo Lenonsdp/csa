@@ -26,9 +26,4 @@ class Categoria extends Model
 			'descricao.unique' => 'O nome da categoria já existe'
 		];
 	}
-
-	public function produtos()
-	{
-		return $this->belongsToMany('App\Produto');
-	}
 }

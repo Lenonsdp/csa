@@ -32,6 +32,7 @@ class MarcaController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$request->headers->set('accept', 'application/json');
 		$request->validate($this->marca->rules(), $this->marca->feedBack());
 
 		$marca = $this->marca->create($request->all());
@@ -63,6 +64,7 @@ class MarcaController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
+		$request->headers->set('accept', 'application/json');
 		$marca = $this->marca->find($id);
 		if (is_null($marca)) {
 			return response('error', 404);

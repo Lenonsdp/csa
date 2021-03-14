@@ -32,10 +32,11 @@ class ProdutoController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$request->headers->set('accept', 'application/json');
 		$request->validate($this->produto->rules(), $this->produto->feedback());
 
 		$parseProduct = $request->all();
-		$idsCategorias = $parseProduct['categoria_id'];
+		$idsCategorias = $parseProduct['categoria_ids'];
 		unset($parseProduct['categoria_id']);
 
 		$produto = $this->produto->create($parseProduct);
@@ -70,6 +71,7 @@ class ProdutoController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
+		$request->headers->set('accept', 'application/json');
 		$produto = $this->produto->find($id);
 
 		if (is_null($produto)) {
