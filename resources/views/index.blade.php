@@ -2,89 +2,49 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+         <link rel="stylesheet" type="text/css" href="http://localhost/teste_csa/resources/css/index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="http://localhost/teste_csa/resources/js/index.js"></script>
+        <title>Tabex</title>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        <div id="wrapper" class="active">
+            <div id="sidebar-wrapper">
+                <ul id="sidebar_menu" class="sidebar-nav">
+                    <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+                </ul>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                <ul class="sidebar-nav" id="sidebar">
+                    <li><a>Home</a></li>
+                    <li><a>link2</a></li>
+                    <li><a>Home</a></li>
+                    <li><a>link2</a></li>
+                    <li><a>Home</a></li>
+                    <li><a>link2</a></li>
+                    <li><a>Home</a></li>
+                    <li><a>link2</a></li>
+                </ul>
+
+                <ul class="sidebar-nav" id="ulToggleDisabled" style="display:none;">
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                </ul>
+            </div>
+
+            <div id="page-content-wrapper">
+                <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12" id="header">
+                        <img src="http://localhost/teste_csa/resources/images/logo.png" alt="Logo tabex" width="100" height="60">
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
                 </div>
             </div>
         </div>
