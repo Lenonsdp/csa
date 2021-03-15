@@ -1,6 +1,27 @@
+body {
+	overflow: hidden;
+}
 .row{
 	margin-left:0px;
 	margin-right:0px;
+}
+
+#containerProduct {
+	background-color: #F5F5F5;
+	min-height: 715px;
+	margin: 25px 60px 60px 60px;
+	-webkit-box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
+	-moz-box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
+	box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
+}
+
+#breadCrumb {
+	background-color: #F5F5F5;
+	min-height: 30px;
+	margin: 25px 60px 25px 60px;
+	-webkit-box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
+	-moz-box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
+	box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
 }
 
 #wrapper {
@@ -18,6 +39,10 @@
 	height: 100%;
 	z-index: 10000;
 	transition: all .4s ease 0s;
+}
+
+.btn-success {
+	float: right;
 }
 
 .sidebar-nav {
