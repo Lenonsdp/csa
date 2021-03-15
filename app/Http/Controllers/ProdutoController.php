@@ -21,7 +21,7 @@ class ProdutoController extends Controller
 	public function index()
 	{
 		$produtos = $this->produto->with('marca')->with('categorias')->get();
-		return $produtos;
+		return view('index', ['produtos' => $produtos]);
 	}
 
 	/**
