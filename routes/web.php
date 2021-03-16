@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('', 'ProdutoController');
+Route::post('/create', 'ProdutoController@create')->name('create');
+Route::get('/add', 'ProdutoController@addProduct')->name('addProduct');

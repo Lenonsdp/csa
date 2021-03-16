@@ -13,6 +13,28 @@ class ProdutoController extends Controller
 		$this->produto = $produto;
 	}
 
+
+	/**
+	 * Add resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function addProduct()
+	{
+		return view('create', ['produto' => 'dasdasdas', 'marcas' => ['Nike', 'Puma', 'Adidas', 'Columbia']]);
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		return view('index');
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

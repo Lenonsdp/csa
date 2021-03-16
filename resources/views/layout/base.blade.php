@@ -40,7 +40,15 @@
 
             <div id="page-content-wrapper">
                 <div class="page-content inset">
-					@yield('content')
+                <div class="row">
+                    <div class="col-md-12" id="header">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo tabex" width="100" height="60">
+                    </div>
+                    </div>
+                    <div class="row" id="breadCrumb"></div>
+                    <div class="row" id="containerProduct">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>
