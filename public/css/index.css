@@ -41,8 +41,40 @@ body {
 	transition: all .4s ease 0s;
 }
 
+#form{
+	width: 80%;
+	margin: 40px;
+}
+
+#form input,
+textarea {
+	max-width: 800px;
+}
+
+#categorias {
+	width: 100%;
+}
+
+#marca,
+#categorias_chosen {
+	max-width: 400px;
+}
+
+#actions {
+	margin-top: 230px;
+}
 .btn-success {
 	float: right;
+}
+
+.form-group {
+	margin-bottom: 20px !important;
+}
+
+.btn-secondary {
+	background-color: #868686;
+	color: #fff;
+	margin-left: 5px;
 }
 
 .sidebar-nav {

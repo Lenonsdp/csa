@@ -5,6 +5,10 @@
          <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
         <script src="{{ asset('js/index.js' )}}"></script>
         <title>Tabex</title>
     </head>
@@ -45,7 +49,8 @@
                         <img src="{{ asset('images/logo.png') }}" alt="Logo tabex" width="100" height="60">
                     </div>
                     </div>
-                    <div class="row" id="breadCrumb"></div>
+
+                    <div id="breadCrumb"></div>
                     <div class="row" id="containerProduct">
                         @yield('content')
                     </div>

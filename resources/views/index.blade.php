@@ -10,7 +10,7 @@
             <th>Especificação Técnica</th>
             <th>Categorias</th>
             <th class="actions">Ações</th>
-            <th><a class="btn btn-success btn-xs" href="{{ route('addProduct') }}">Novo Produto</a></th>
+            <th><a class="btn btn-success btn-md" href="{{ route('addProduct') }}">Novo Produto</a></th>
         </tr>
     </thead>
     <tbody>

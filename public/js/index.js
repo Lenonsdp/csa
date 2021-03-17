@@ -21,5 +21,11 @@ Protucts.prototype = {
 			}
 			$('#wrapper').toggleClass('active');
 		});
+
+		$('#categorias')
+			.find('option')
+			.prop('selected', false)
+			.end()
+			.chosen();
 	}
 }
