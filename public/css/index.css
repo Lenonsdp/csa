@@ -24,6 +24,20 @@ body {
 	box-shadow: 4px 4px 21px -8px rgba(0,0,0,0.44);
 }
 
+#breadCrumb span{
+	margin: 10px 0px 0px 15px
+}
+
+#header span {
+	color: #FFF;
+	float: right;
+	margin: 10px 32px 0px -15px;
+}
+
+#header .fa-th-list {
+	margin: 45px -45px 0px 0px;
+}
+
 #wrapper {
 	padding-left: 70px;
 	transition: all .4s ease 0s;
@@ -103,7 +117,7 @@ textarea {
 }
 
 #sidebar_menu li a, .sidebar-nav li a {
-	color: #999;
+	color: #FFF;
 	display: block;
 	float: left;
 	text-decoration: none;
@@ -129,8 +143,8 @@ textarea {
 }
 
 .sidebar-nav li a {
-  color: #999999;
-  display: flex;
+  color: #FFF;
+  display: block;
   text-decoration: none;
 }
 
@@ -179,12 +193,16 @@ textarea {
 }
 
 #ulToggleDisabled li a span {
-	right: -89px;
 	height: 38px;
+	padding: 10px;
+	color: #FFF;
+	margin-left: 60px;
+	cursor: pointer;
 }
 
 #main_icon {
 	right: -22px;;
+	color: #FFF;
 }
 
 #header {
@@ -208,4 +226,38 @@ textarea {
 		width: 150px;
 		transition: all .4s ease 0s;
 	}
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.15em 0.15em 0 0;
+	content: '';
+	display: inline-block;
+	height: 1.0em;
+	left: -10px !important;
+	position: relative;
+	top: 0.40em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.95em;
+	color: #eaebec;
+}
+
+.chevron.right:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.chevron.left:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
+
+.chevron.right {
+	font-size: 18px;
 }
