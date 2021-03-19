@@ -1,6 +1,12 @@
 body {
-	overflow: hidden;
+	overflow-x: hidden;
 }
+
+nav {
+	text-align: center;
+	margin-top: 210px;
+}
+
 .row{
 	margin-left:0px;
 	margin-right:0px;
@@ -65,7 +71,7 @@ textarea {
 	max-width: 800px;
 }
 
-#categorias {
+#categoria_ids {
 	width: 100%;
 }
 
@@ -113,7 +119,7 @@ textarea {
 }
 
 #page-content-wrapper {
-  width: 100%;
+	display: flow-root;
 }
 
 #sidebar_menu li a, .sidebar-nav li a {

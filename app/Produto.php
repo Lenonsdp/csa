@@ -11,14 +11,15 @@ class Produto extends Model
 		'status',
 		'marca_id',
 		'especificacao_tecnica',
-		'categoria_id'
+		'categoria_ids'
 	];
 
 	public function rules()
 	{
 		return [
 			'nome' => 'required',
-			'marca_id' => 'required|integer'
+			'marca_id' => 'required|integer',
+			'categoria_ids' => 'required'
 		];
 	}
 

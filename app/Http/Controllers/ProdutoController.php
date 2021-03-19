@@ -35,13 +35,25 @@ class ProdutoController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Store a newly created resource in storage.
 	 *
+	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('index');
+
+		$request->validate($this->produto->rules(), $this->produto->feedback());
+		$parseProduct = $request->all();
+		$idsCategorias = $parseProduct['categoria_ids'];
+		unset($parseProduct['categoria_ids']);
+
+		$produto = $this->produto->create($parseProduct);
+		$produto->categorias()->attach($idsCategorias);
+
+
+		$produtos = $this->produto->with('marca')->with('categorias')->paginate(10);
+		return view('index', ['produtos' => $produtos, 'errors' => []]);
 	}
 
 	/**
@@ -51,7 +63,7 @@ class ProdutoController extends Controller
 	 */
 	public function index()
 	{
-		$produtos = $this->produto->with('marca')->with('categorias')->get();
+		$produtos = $this->produto->with('marca')->with('categorias')->paginate(10);
 		return view('index', ['produtos' => $produtos]);
 	}
 

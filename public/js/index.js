@@ -1,7 +1,7 @@
 var protucts;
 
 $(function() {
-	protucts = new Protucts('painel_base');
+	protucts = new Protucts();
 });
 
 var Protucts = function () {
@@ -10,7 +10,7 @@ var Protucts = function () {
 
 Protucts.prototype = {
 	'registerEvents': function() {
-		$('#menu-toggle').on('click', function(e) {
+		$('#menu_toggle').on('click', function(e) {
 			e.preventDefault();
 			if($('#wrapper').hasClass('active')) {
 				$('#sidebar').hide();
@@ -22,7 +22,7 @@ Protucts.prototype = {
 			$('#wrapper').toggleClass('active');
 		});
 
-		$('#categorias')
+		$('#categoria_ids')
 			.find('option')
 			.prop('selected', false)
 			.end()
