@@ -21,12 +21,12 @@
 			<td>{{ $produto->marca->descricao }}</td>
 			<td>{{ $produto->especificacao_tecnica }}</td>
 			<td>
-			@foreach($produto->categorias as $categoria)
-					{{ $categoria->descricao }}
+			@foreach($produto->categorias as $key => $categoria)
+					|{{ $categoria->descricao }}
 			@endforeach
 			</td>
 			<td class="actions">
-				<a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+				<a class="btn btn-warning btn-xs" href="{{ route('editProduct', $produto->id) }}">Editar</a>
 				<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 			</td>
 			<td></td>

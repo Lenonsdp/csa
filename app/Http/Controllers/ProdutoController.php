@@ -51,9 +51,7 @@ class ProdutoController extends Controller
 		$produto = $this->produto->create($parseProduct);
 		$produto->categorias()->attach($idsCategorias);
 
-
-		$produtos = $this->produto->with('marca')->with('categorias')->paginate(10);
-		return view('index', ['produtos' => $produtos, 'errors' => []]);
+		return $this->index();
 	}
 
 	/**
@@ -65,6 +63,31 @@ class ProdutoController extends Controller
 	{
 		$produtos = $this->produto->with('marca')->with('categorias')->paginate(10);
 		return view('index', ['produtos' => $produtos]);
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  Integer
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit(Request $request, $id)
+	{
+		$produto = $this->produto->find($id);
+		$produto->load(['categorias']);
+
+		if (is_null($produto)) {
+			return response('error', 404);
+		}
+		$categorias = Categoria::all();
+		$marcas = Marca::all();
+
+		return view('create', [
+			'produto' => $produto,
+			'categorias' => $categorias,
+			'marcas' => $marcas
+		]);
 	}
 
 	/**

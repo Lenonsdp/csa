@@ -3,8 +3,8 @@
 @section('content')
 
 <div id="form">
-	@if(false)
-		<form method="post" action="{{ route('update', ['produto' => 'teste']) }}">
+	@if(isset($produto->id))
+		<form method="post" action="{{ route('update', $produto->id) }}">
 			@csrf
 			@method('PUT')
 	@else
@@ -12,7 +12,7 @@
 			@method('POST')
 			@csrf
 	@endif
-
+		<input type="hiden" name="produto_id" value="{{ $produto->id ?? old('id') }}">
 		<div class="form-group">
 			<label for="nome">Nome</label>
 			<input type="text" class="form-control" name="nome" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome">
@@ -21,7 +21,7 @@
 
 		<div class="form-group">
 			<label for="especificacao_tecnica">Especificação tecnica</label>
-			<textarea type="text" class="form-control" name="especificacao_tecnica" rows="6" value="{{ $produto->especificacao_tecnica ?? old('especificacao_tecnica') }}" placeholder="Especificaçao"></textarea>
+			<textarea type="text" class="form-control" name="especificacao_tecnica" rows="6" placeholder="Especificaçao">{{ $produto->especificacao_tecnica ?? old('especificacao_tecnica') }}</textarea>
 			{{ $errors->has('especificacao_tecnica') ? $errors->first('especificacao_tecnica') : '' }}
 		</div>
 
@@ -31,16 +31,16 @@
 				<option value="">-- Selecione uma Marca --</option>
 
 				@foreach($marcas as $marca)
-					<option value="{{ $marca->id }}">{{ $marca->descricao }}</option>
+					<option value="{{ $marca->id }}" {{ ($produto->marca_id ?? old('marca_id')) == $marca->id ? 'selected' : '' }}>{{ $marca->descricao }}</option>
 				@endforeach
 			</select>
-			{{ $errors->has('marca_id') ? $errors->first('marca_id') : '' }}
+			{{ $errors->has('marca_id') ? 'Marca é obrigatório' : '' }}
 		</div>
 		<label for="categoria_ids">Categorias</label>
 		<div class="form-group">
 			<select class="standardSelect" id="categoria_ids" multiple="multiple" name="categoria_ids[]" placeholder="Selecione...">
 				@foreach($categorias as $categoria)
-					<option value="{{ $categoria->id }}">{{ $categoria->descricao }}</option>
+					<option value="{{ $categoria->id }}" {{ in_array($categoria->id, [$produto->categoria_ids]) ? 'selected' : '' }}>{{ $categoria->descricao }}</option>
 				@endforeach
 			</select>
 			{{ $errors->has('categoria_ids') ? $errors->first('categoria_ids') : '' }}
