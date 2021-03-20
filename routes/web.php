@@ -17,3 +17,4 @@ Route::resource('', 'ProdutoController');
 Route::post('/create', 'ProdutoController@create')->name('create');
 Route::get('/add', 'ProdutoController@addProduct')->name('addProduct');
 Route::get('/edit/{id}/', 'ProdutoController@edit')->name('editProduct');
+Route::put('/update/{id}/', 'ProdutoController@update')->name('update');

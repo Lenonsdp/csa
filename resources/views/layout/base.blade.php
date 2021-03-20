@@ -2,12 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		 <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<script src="{{ asset('js/index.js' )}}"></script>
 		<title>Tabex</title>
@@ -23,7 +25,7 @@
 					<li><a>Home</a></li>
 					<li><a>Finanças</a></li>
 					<li><a>Embarcações</a></li>
-					<li><a>Configuraçõoes</a></li>
+					<li><a>Configurações</a></li>
 					<li><a>Usuários</a></li>
 					<li><a>Gps</a></li>
 					<li><a>Arquivos</a></li>
@@ -64,6 +66,7 @@
 			</div>
 			<div class="row">
 				<div id="header">
+					<a id="menu_toggle_mobile" href="#" style="display:none;"><span id="main_icon_mobile" class="glyphicon glyphicon-align-justify"></span></a>
 					<img src="{{ asset('images/logo.png') }}" alt="Logo tabex" width="100" height="60">
 					<span class="fas fa-sign-out-alt"></span>
 					<span class="fas fa-user-cog"></span>
@@ -82,6 +85,7 @@
 					<div class="row" id="containerProduct">
 						@yield('content')
 					</div>
+					{{ isset($produtos) ? $produtos->links() : '' }}
 				</div>
 			</div>
 		</div>
