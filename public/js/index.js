@@ -4,12 +4,14 @@ $(function() {
 	app = new App();
 });
 
-var app = function () {
+var App = function () {
 	this.registerEvents();
 }
 
 App.prototype = {
 	'registerEvents': function() {
+		$('#categoria_ids').find('option').end().chosen();
+
 		$('#menu_toggle').on('click', function(e) {
 			e.preventDefault();
 			if($('#wrapper').hasClass('active')) {
@@ -58,10 +60,5 @@ App.prototype = {
 				}
 			});
 		});
-
-		$('#categoria_ids')
-		.find('option')
-		.end()
-		.chosen();
 	}
 }
