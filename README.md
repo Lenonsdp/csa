@@ -41,7 +41,7 @@ Para construir o projeto, siga os passos abaixo executando os comandos diretóri
 Copie o arquivo contendo as variáveis de ambiente do projeto:
 
 ```
-$ cp .envexample .env
+$ cp .env.example .env
 ```
 
 
@@ -56,12 +56,23 @@ Cosntrua a database ```csa```, na sua IDE de preferência conforme configurado n
 CREATE DATABASE csa;
 ```
 
+Gere a chave de criptografia do ***Illuminate***.
+
+```
+$ php artisan key:generate
+```
+
 Por fim iremos rodar as migrations.
 
 ```
-# php artisan migrate
+$ php artisan migrate
 ```
 
+Para subir o servidor local execute.
+
+```
+$ php artisan serve
+```
 
 Aqui estão alguns dados inicias inclusão de marcas, categorias e um produto.
 
@@ -103,5 +114,5 @@ VALUES
 
 #### Rotas
 Rotas definidas na contrução da aplicação, conforme utilizado o blade template, o retorno de algumas funcões,
-redireciona para a view, algo que pode ser feito e aplicar a duplicãcao das rotas para fornecer uma interface rest é uma para view(Blade).
+redireciona para a view, algo que pode ser feito é aplicar a duplicacão das rotas para fornecer uma interface rest e uma para view(Blade).
 ![](https://i.imgur.com/xuiVFWt.png)
