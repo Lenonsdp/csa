@@ -1,78 +1,107 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+### Configurando o Tabex
+# Tabex
 
-## About Laravel
+Aplicação desenvolvida em php, utilizando framework laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Sumário
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Tabex](#tabex)
+	- [Sumário](#sumário)
+	- [Instalação](#instalação)
+		- [Pré-requisitos](#pré-requisitos)
+			- [Construção](#construção)
+			- [Rotas](#rotas)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalação
 
-## Learning Laravel
+Para utilizar o sistema Tabex, você precisa atender os [pré-requisitos](#pré-requisitos) e, em seguida, configura-lo.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Pré-requisitos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para configurar o Tabex, certifique-se de que os seguintes softwares estão instalados no sistema operacional:
 
-## Laravel Sponsors
+* [PHP](https://www.php.net/manual/pt_BR/install.php)
+* [Mysql](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
+* [Laravel 7x](https://laravel.com/docs/7.x/installation)
+* [Composer](https://getcomposer.org/download/)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Antes de configurar o Tabex, você precisa baixar este repositório Git. Depois disso, você pode instalar a aplicação.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+Utilize o seguinte comando para baixar o repositório:
 
-## Contributing
+```
+$ git clone https://github.com/Lenonsdp/csa
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Construção
 
-## Code of Conduct
+Para construir o projeto, siga os passos abaixo executando os comandos diretório raiz do projeto.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Copie o arquivo contendo as variáveis de ambiente do projeto:
 
-## Security Vulnerabilities
+```
+$ cp .envexample .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+Para instalar as dependencias:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+$ composer install
+```
+Cosntrua a database ```csa```, na sua IDE de preferência conforme configurado nas variáveis de ambiente.
+
+```
+CREATE DATABASE csa;
+```
+
+Por fim iremos rodar as migrations.
+
+```
+# php artisan migrate
+```
+
+
+Aqui estão alguns dados inicias inclusão de marcas, categorias e um produto.
+
+```
+INSERT INTO csa.categorias (descricao) 
+VALUES 
+('Roupa'),
+('Tênis'),
+('Chapéu'),
+('Infantil'),
+('Adulto'),
+('Masculino'),
+('Feminino'),
+('Inverno'),
+('Verão'),
+('Promoção');
+
+INSERT INTO csa.marcas (descricao) 
+VALUES 
+('Nike'),
+('Adidas'),
+('Puma'),
+('Tommy'),
+('Versace'),
+('Colcci'),
+('Dolce Gabbana'),
+('Chanel'),
+('Gucci'),
+('Prada');
+
+INSERT INTO csa.produtos (nome, especificacao_tecnica, marca_id) 
+VALUES 
+('Moletom', 'Estampa posterior de logo, gola clássica. Material: algodão. Cor: Preto.', '6');
+
+INSERT INTO csa.produto_categorias (produto_id, categoria_id) 
+VALUES 
+(1, 5);
+```
+
+#### Rotas
+Rotas definidas na contrução da aplicação, conforme utilizado o blade template, o retorno de algumas funcões,
+redireciona para a view, algo que pode ser feito e aplicar a duplicãcao das rotas para fornecer uma interface rest é uma para view(Blade).
+![](https://i.imgur.com/xuiVFWt.png)
